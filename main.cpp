@@ -54,6 +54,22 @@ class complex
         return ret;
         }
 
+        // overload += con reale a dx
+        complex& operator+=(const T& other) {
+        pre += other;
+        return *this;
+	}
+   
+	
+        // overload + con reale a dx
+        complex operator+(const T& other) const {
+        complex ret = *this;
+        ret += other;
+        return ret;
+        }
+
+
+
         // operatore *= overload
         complex& operator*=(const complex& other) {
         T a=pre;
@@ -71,6 +87,23 @@ class complex
         ret *= other;
         return ret;
         }
+
+        // overload *= con reale a dx
+        complex& operator*=(const T& other) {
+        pre *= other;
+        pim *= other;
+        return *this;
+	}
+   
+	
+        // overload * con reale a dx
+        complex operator*(const T& other) const {
+        complex ret = *this;
+        ret *= other;
+        return ret;
+        }
+
+
        
                
    };
@@ -97,6 +130,23 @@ operator<<(std::ostream& os, const complex<T>& r) {
 
     return os;
 }
+
+// overload + con reale a sx
+template<typename T>
+complex<T>
+operator+(const T& r, const complex<T>& c)
+{
+    return c + r;
+}
+
+// overload * con reale a sx
+template<typename T>
+complex<T>
+operator*(const T& r, const complex<T>& c)
+{
+    return c * r;
+}
+
 
 
 
