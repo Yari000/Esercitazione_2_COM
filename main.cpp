@@ -68,6 +68,9 @@ class complex
         return ret;
         }
 
+        complex operator-() const {
+        return complex(-pre,-pim);
+        }
 
 
         // operatore *= overload
@@ -152,14 +155,18 @@ operator*(const T& r, const complex<T>& c)
 
 
 int main()
-{
-  complex c1(2.3,1.2);
-  complex c2(3.0,-9.2);
-  complex r1(4.6);
+{ 
+  complex c1(0.0,8.0);
+  complex c2(1.2,3.5);
+  complex c3(1.4);
+  cout<<"c1: "<<c1<<endl;
   cout<<"la somma è "<<c1+c2<<endl;
   cout<<"il prodotto è "<<c1*c2<<endl;
+  cout<<"la differenza è "<<c1+(-c2)<<endl;
   cout<<"il coniugato è "<<conj(c2)<<endl;
-  cout<<"somma con reale: "<<r1+c2<<endl;
+  cout<<"il coniugato del reale: "<<conj(c3)<<endl;
+  cout<<"somma con reale: "<<8.9+c2<<endl;
+  cout<<"prodotto con reale: "<<0.5*c2<<endl;
   return 0;
 }
 
