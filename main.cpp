@@ -2,7 +2,7 @@
 #include <iomanip>
 using namespace std;
 
-template<typename T>
+template<typename T> requires floating_point<T>
 class complex
 {
  T pre,pim;
@@ -111,7 +111,7 @@ class complex
                
    };
 // metodo per il coniugato
-    template<typename T>
+    template<typename T> requires floating_point<T>
     complex<T> conj(complex<T> C)
     {
       complex<T> v(C.real(),-1.0*C.imaginary());
@@ -119,7 +119,7 @@ class complex
     }
 
 // overload stampa
-template<typename T>
+template<typename T> requires floating_point<T>
 std::ostream&
 operator<<(std::ostream& os, const complex<T>& r) {
     if (r.imaginary() != 0)
@@ -135,7 +135,7 @@ operator<<(std::ostream& os, const complex<T>& r) {
 }
 
 // overload + con reale a sx
-template<typename T>
+template<typename T> requires floating_point<T>
 complex<T>
 operator+(const T& r, const complex<T>& c)
 {
@@ -143,7 +143,7 @@ operator+(const T& r, const complex<T>& c)
 }
 
 // overload * con reale a sx
-template<typename T>
+template<typename T> requires floating_point<T>
 complex<T>
 operator*(const T& r, const complex<T>& c)
 {
